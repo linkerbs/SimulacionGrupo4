@@ -1,0 +1,310 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{ulem}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{xcolor}
+
+\begin{document}
+
+
+{\Huge
+
+\begin{equation*}
+    \frac{d}{dx}\left(\frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx}\left(\vec{w}\right)\right)\right)\right)=\vec{f}
+\end{equation*}
+}
+\vspace{15mm} %5mm vertical space
+
+\textbf{Funciones de forma}
+\begin{align}
+    \begin{split}
+        N_1 &= (1-\epsilon-\eta-\phi)(2(1-\epsilon-\eta-\phi)-1)  \\
+        N_2 &= \epsilon(2\epsilon-1) \\
+        N_3 &= \eta (2\eta-1) \\
+        N_4 &= \phi(2\phi-1) \\
+        N_5 &= 4\epsilon\eta \\
+        N_6 &= 4\eta\phi \\
+        N_7 &= 4\epsilon\phi \\
+        N_8 &= 4\epsilon(1-\epsilon-\eta-\phi) \\
+        N_9 &= 4\eta(1-\epsilon-\eta-\phi) \\
+        N_{10} &= 4\phi(1-\epsilon-\eta-\phi) \\
+    \end{split}
+\end{align}
+
+
+%------------------- PASO 2 --------------    
+\vspace{15mm} %5mm vertical space
+\textbf{Step 2: Interpolation}
+
+\begin{gather}
+  \label{eq-tfrac}
+    \alpha\approx N_1\alpha_1+N_2\alpha_2+N_3\alpha_3+N_4\alpha_4+N_5\alpha_5+N_6\alpha_6+N_7\alpha_7+N_8\alpha_8+N_9\alpha_9+N_{10}\alpha_{10}\\
+    \beta\approx N_1\beta_1+N_2\beta_2+N_3\beta_3+N_4\beta_4+N_5\beta_5+N_6\beta_6+N_7\beta_7+N_8\beta_8+N_9\beta_9+N_{10}\beta_{10}\\
+    \gamma\approx N_1\gamma_1+N_2\gamma_2+N_3\gamma_3+N_4\gamma_4+N_5\gamma_5+N_6\gamma_6+N_7\gamma_7+N_8\gamma_8+N_9\gamma_9+N_{10}\gamma_{10}
+\end{gather}
+
+\begin{align}
+%matriz alfa
+        \alpha &\approx
+        \setcounter{MaxMatrixCols}{11}
+        \begin{bmatrix}
+        &N_1 &N_2 &N_3 &N_4 &N_5 &N_6 &N_7 &N_8 &N_9 &N_{10}
+        \end{bmatrix}
+        \setcounter{MaxMatrixCols}{11}
+        \begin{bmatrix}
+        \alpha_1 \\
+        \alpha_2 \\
+        \alpha_3 \\
+        \alpha_4 \\
+        \alpha_5 \\
+        \alpha_6 \\
+        \alpha_7 \\
+        \alpha_8 \\
+        \alpha_9 \\
+        \alpha_{10}
+        \end{bmatrix}
+\end{align}
+
+\begin{align}
+%matriz beta
+\vspace{10mm} %5mm vertical space
+        \beta &\approx
+        \setcounter{MaxMatrixCols}{11}
+        \begin{bmatrix}
+        &N_1 &N_2 &N_3 &N_4 &N_5 &N_6 &N_7 &N_8 &N_9 &N_{10}
+        \end{bmatrix}
+        \setcounter{MaxMatrixCols}{11}
+        \begin{bmatrix}
+        \beta_1 \\
+        \beta_2 \\
+        \beta_3 \\
+        \beta_4 \\
+        \beta_5 \\
+        \beta_6 \\
+        \beta_7 \\
+        \beta_8 \\
+        \beta_9 \\
+        \beta_{10}
+        \end{bmatrix}
+\end{align}
+
+\begin{align}
+%matriz gamma
+\vspace{10mm} %5mm vertical space
+        \gamma &\approx
+        \setcounter{MaxMatrixCols}{11}
+        \begin{bmatrix}
+        &N_1 &N_2 &N_3 &N_4 &N_5 &N_6 &N_7 &N_8 &N_9 &N_{10}
+        \end{bmatrix}
+        \setcounter{MaxMatrixCols}{11}
+        \begin{bmatrix}
+        \gamma_1 \\
+        \gamma_2 \\
+        \gamma_3 \\
+        \gamma_4 \\
+        \gamma_5 \\
+        \gamma_6 \\
+        \gamma_7 \\
+        \gamma_8 \\
+        \gamma_9 \\
+        \gamma_{10}
+        \end{bmatrix}
+\end{align}
+
+\begin{align}
+    \begin{split}
+        \alpha &\approx 
+        \mathbf{N}\boldsymbol{\alpha}\\
+        \beta &\approx
+        \mathbf{N}\boldsymbol{\beta}\\
+        \gamma &\approx
+        \mathbf{N}\boldsymbol{\gamma}
+    \end{split}
+\end{align}
+
+\begin{align}
+\begin{split}
+    \vec{w}&=
+    \begin{bmatrix}
+    \alpha \\ \beta \\ \gamma
+    \end{bmatrix} \\
+    &\approx
+    \begin{bmatrix}
+    \mathbf{N}\boldsymbol{\alpha} \\ \mathbf{N}\boldsymbol{\beta} \\ \mathbf{N}\boldsymbol{\gamma}
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+    &\mathbf{N} &0 &0\\
+    &0 &\mathbf{N} &0\\
+    &0 &0 &\mathbf{N}
+    \end{bmatrix}
+    \begin{bmatrix}
+    \boldsymbol{\alpha} \\ \boldsymbol{\beta} \\ \boldsymbol{\gamma}
+    \end{bmatrix} \\
+    \vec{w}&\approx \mathbf{N}^*\,\mathbf{W}
+\end{split}
+\end{align}
+
+%------------------- PASO 3 --------------    
+\textbf{Step 3: Model approximation}
+\\
+\begin{align}
+   \frac{d}{dx}\left(\frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx}\left(\vec{w}\right)\right)\right)\right)=\vec{f}\\
+    \frac{d}{dx}\left(\frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx}\left( \mathbf{N}^*\,\mathbf{W}\right)\right)\right)\right)=\vec{f}
+\end{align}
+\begin{equation}
+    R=-\frac{d}{dx}\left(\frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx}\left( \mathbf{N}^*\,\mathbf{W}\right)\right)\right)\right)+\vec{f}
+\end{equation}
+\vspace{10mm} %5mm vertical space
+%------------------- PASO 4 --------------    
+\textbf{Step 4: W.R.M.}
+\begin{equation}
+    \int \int \int wR\,dxdydz=0
+\end{equation}
+\begin{equation}
+    \int_VwR\,dV=0
+\end{equation}
+\begin{equation}
+% name
+    \mathbf{W}^*:=
+    \begin{bmatrix}
+    &\mathbf{W} &0 &0\\
+    &0 &\mathbf{W} &0\\
+    &0 &0 &\mathbf{W}
+    \end{bmatrix}
+\end{equation}
+
+
+\begin{align}
+    \int_V
+    \mathbf{W}^*
+    \left [
+    -\frac{d}{dx}\left(\frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx}\left( \mathbf{N}^*\,\mathbf{W}\right)\right)\right)\right)+\vec{f}
+    \right ]\,dV=0
+\end{align}
+\newpage    %salto de pagina
+
+%------------------- PASO 5 --------------    
+\textbf{Step 5: Galerkin}
+\begin{equation*}
+    \mathbf{W}=\mathbf{N}^T
+\end{equation*}
+\begin{equation}
+% final name
+    \mathbf{W}^*=
+    \begin{bmatrix}
+    &\mathbf{N}^T &0 &0\\
+    &0 &\mathbf{N}^T &0\\
+    &0 &0 &\mathbf{N}^T
+    \end{bmatrix}=
+    \mathbf{N}^*^T
+\end{equation}
+\begin{align}
+    \int_V
+    \mathbf{N}^*^T
+    \left [
+    -\frac{d}{dx}\left(\frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx}\left( \mathbf{N}^*\,\mathbf{W}\right)\right)\right)\right)+\vec{f}
+    \right ]\,dV=0
+\end{align}
+\begin{align}
+    \int_V
+    \left [
+    -\mathbf{N}^*^T\frac{d}{dx}\left(\frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx}\left( \mathbf{N}^*\,\mathbf{W}\right)\right)\right)\right)+\mathbf{N}^*^T\vec{f}
+    \right ]\,dV=0
+\end{align}
+\begin{align}
+    -\int_V
+    \mathbf{N}^*^T\frac{d}{dx}\left(\frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx}\left( \mathbf{N}^*\,\mathbf{W}\right)\right)\right)\right)\,dV +
+    \int_V
+    \mathbf{N}^*^T\vec{f}\,dV=0
+\end{align}
+%------Forma fuerte
+{\Large Strong Form:}
+\begin{align}
+    \left (
+    \int_V
+    \mathbf{N}^*^T\frac{d}{dx}\left(\frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx}\left( \mathbf{N}^*\,\right)\right)\right)\right)\,dV
+    \right ) \mathbf{W} =
+    \int_V
+    \mathbf{N}^*^T\vec{f}\,dV
+\end{align}
+\vspace{10mm} %5mm vertical space
+
+%------------------- PASO 6 --------------    
+\textbf{Step 6: Integration by Parts}
+\begin{equation*}
+    \int_V
+    \mathbf{N}^*^T\frac{d}{dx}\left(\frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx} \mathbf{N}^*\,\right)\right)\right)\,dV
+\end{equation*}
+\begin{equation}
+    \int U\,dV=UV-\int V\,dU
+\end{equation}
+\begin{align}
+        U&=\mathbf{N}^*^T & 
+        dV&=\frac{d}{dx}\left(\frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx} \mathbf{N}^*\,\right)\right)\right) \\
+    dU&=\frac{d}{dx} \mathbf{N}^*^T\, & 
+    V&= \frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx} \mathbf{N}^*\,\right)\right)
+\end{align}
+
+\begin{equation}
+    \left [
+    \mathbf{N}^*^T\cdot
+    \frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx} \mathbf{N}^*\,\right)\right)
+    \right ]\bigg |_V
+    -
+    \int_V
+    \frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx} \mathbf{N}^*\,\right)\right)\cdot
+    \frac{d}{dx} \mathbf{N}^*^T\,dV
+\end{equation}
+
+\newpage
+
+{\Large Going back:}
+\begin{gather}
+  \label{eq-tfrac}
+    \left (
+    \left [
+    \mathbf{N}^*^T\cdot
+    \frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx} \mathbf{N}^*\,\right)\right)
+    \right ]\bigg |_V
+    -
+    \int_V
+    \frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx} \mathbf{N}^*\,\right)\right)\cdot
+    \frac{d}{dx} \mathbf{N}^*^T\,dV
+    \right ) \mathbf{W} =
+    \int_V
+    \mathbf{N}^*^T\vec{f}\,dV
+\end{gather}
+\textbf{Weak form:}
+\begin{equation}
+    \left(
+    -
+    \int_V
+    \frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx} \mathbf{N}^*\,\right)\right)\cdot
+    \frac{d}{dx} \mathbf{N}^*^T\,dV
+    \right)\mathbf{W}=
+    \int_V
+    \mathbf{N}^*^T\vec{f}\,dV
+    -
+    \left [
+    \mathbf{N}^*^T\cdot
+    \frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx} \mathbf{N}^*\mathbf{W}\,\right)\right)
+    \right ]\bigg |_V
+\end{equation}
+
+\begin{align}
+    \mathbf{K}&=
+    -\int_V
+    \frac{d}{dx}\left(EI\frac{d}{dx}\left(\frac{d}{dx} \mathbf{N}^*\,\right)\right)\cdot
+    \frac{d}{dx} \mathbf{N}^*^T\,dV
+    \\
+    \mathbf{b}&=
+    \int_V
+    \mathbf{N}^*^T\vec{f}\,dV
+\end{align}
+\\
+\textbf{Step 6.5: Defining Matrix Components}
+
+
+\end{document}
