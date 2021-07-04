@@ -1,0 +1,37 @@
+BeginZE C:/Users/kensh/Documents/vigav2.gid/vigav2.vv
+   x -15.1747426986694336 -7.50381183624267578
+   y -0.153838843107223511 -3.73609495162963867
+   z -15.4963560104370117 15.4963560104370117
+   e 3.66778302192687988
+   v -0.222543066119445049 0.208399597149131255 0.0781765647669988017
+   r 0.949174702755749999
+   m 0.900916039943695068 -0.241162210702896118 0.36081993579864502 0 0.055650666356086731 0.888725996017456055 0.455048412084579468 0 -0.430410563945770264 -0.389880567789077759 0.814088404178619385 0 0 0 0 1
+   c -12.3547296524047852 -1.3798443078994751 0
+   pd 0
+   pno 0
+   pfo 0
+   pf 4
+   pv 0
+   NowUse 0
+   DrawingType 0
+   LightVector 90 90 150 0
+   OGLShadow(UseShadows) 0
+   OGLShadow(RenderMode) RenderNice
+   OGLShadow(ShadowBias) -0.002
+   OGLShadow(AmbientShadows) 1
+   OGLShadow(UseFBO) 1
+   OGLShadow(FBOSize) 2048
+   OGLShadow(DimmedLightFactor) 0.02
+   OGLStereo(UseStereo) 0
+   OGLStereo(RelativeEyeDistance) 1
+   OGLStereo(FlipEyes) 0
+   OGLStereo(StereoMode) AnaglyphColors
+   OGLStereo(EyeDistance) 0.075
+   OGLStereo(LeftEyeDistance) 1 0 0 1
+   OGLStereo(RightEyeDistance) 0 1 1 1
+EndZE C:/Users/kensh/Documents/vigav2.gid/vigav2.vv
+
+BeginMirror
+   Mirror 0 Angle 0.0 AngleFake -15.0 SizeFactor 2.0 HeightOffset 0.25 Color #d9e5f24d Backlight Off EdgeStyle No Type Scene DrawMode Mirror
+EndMirror
+
