@@ -5,10 +5,9 @@
 *set var NDY=CondNumEntities(int)
 *Set Cond Dirichlet_Z *nodes
 *set var NDZ=CondNumEntities(int)
-*set var ND=*NDX+*NDY+*NDZ
 *Set Cond Neumann *nodes
 *set var NN=CondNumEntities(int)
-*npoin *nelem *ND *NN
+*npoin *nelem *NDX *NDY *NDZ *NN
 
 Coordinates
 *set elems(all)  
@@ -26,21 +25,21 @@ EndElements
 Dirichlet_X
 *Set Cond Dirichlet_X *nodes
 *loop nodes *OnlyInCond
-*NodesNum *cond(T,real)
+*NodesNum *cond(T,w_x)
 *end nodes
 EndDirichlet_X
 
 Dirichlet_Y
 *Set Cond Dirichlet_Y *nodes
 *loop nodes *OnlyInCond
-*NodesNum *cond(T,real)
+*NodesNum *cond(T,w_y)
 *end nodes
 EndDirichlet_Y
 
 Dirichlet_Z
 *Set Cond Dirichlet_Z *nodes
 *loop nodes *OnlyInCond
-*NodesNum *cond(T,real)
+*NodesNum *cond(T,w_z)
 *end nodes
 EndDirichlet_Z
 
