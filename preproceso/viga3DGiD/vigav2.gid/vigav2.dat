@@ -1,5 +1,6 @@
 193 -13 13 74
 233 100 21 21 21 21
+
 Coordinates
 1           19           13            0
 2         17.5           13            0
@@ -235,6 +236,7 @@ Coordinates
 232            0            0          2.5
 233            0            0            5
 EndCoordinates
+
 Elements
 1 181 224 161 178 207 197 171 179 206 169
 2 161 181 178 139 171 179 169 148 155 154
@@ -337,6 +339,7 @@ Elements
 99 231 220 224 223 226 221 228 227 218 222
 100 7 22 39 12 11 25 13 5 9 19
 EndElements
+
 Dirichlet_X
 23           20
 24           20
@@ -360,6 +363,7 @@ Dirichlet_X
 157           20
 161           20
 EndDirichlet_X
+
 Dirichlet_Y
 23           20
 24           20
@@ -383,6 +387,7 @@ Dirichlet_Y
 157           20
 161           20
 EndDirichlet_Y
+
 Dirichlet_Z
 23           20
 24           20
@@ -406,6 +411,7 @@ Dirichlet_Z
 157           20
 161           20
 EndDirichlet_Z
+
 Neumann
 48            8
 59            8
