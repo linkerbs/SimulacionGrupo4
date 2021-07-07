@@ -130,9 +130,9 @@ public class Sel {
         float c2 = calculatec2(node1.getX(), node2.getX(), node8.getX());
 
         return (float) ((1/ pow(c2,2)*192)* pow(4*c2-c1, 4) - (1/ pow(c2,3)*3840)* pow(4*c2-c1, 5) +
-                        (1/ pow(c2,3)*7680)* pow(4*c2+8*c1, 5) - (7/ pow(c2,3)*7680)* pow(4*c2-8*c1, 5) +
-                        (1/ pow(c2,3)*768)* pow(-8*c1,5) - (c1/ pow(c2,3)*96)* pow(4*c2-8*c1,4) +
-                        ((2*c1-1)/ pow(c2,3)*192)* pow(-8*c1,4));
+                (1/ pow(c2,3)*7680)* pow(4*c2+8*c1, 5) - (7/ pow(c2,3)*7680)* pow(4*c2-8*c1, 5) +
+                (1/ pow(c2,3)*768)* pow(-8*c1,5) - (c1/ pow(c2,3)*96)* pow(4*c2-8*c1,4) +
+                ((2*c1-1)/ pow(c2,3)*192)* pow(-8*c1,4));
     }
 
     private static float calculateE (int i, Mesh m) {
@@ -570,14 +570,12 @@ public class Sel {
     }
 
     public static void applyDirichlet(Mesh m, ArrayList<ArrayList<Float>> K, ArrayList<Float> b){
-        /*for(int i = 0; i < m.getDirichletList().length; i++)
-            System.out.println("dirich: " + m.getDirichletList()[i].getNode1());*/
         for(int i = 0; i < m.getSize(Sizes.DIRICHLET.ordinal()); i++){
-            //System.out.println(m.getSize(Sizes.DIRICHLET.ordinal()) + " D");
             Condition c = m.getCondition(i, Sizes.DIRICHLET.ordinal());
-            int index = c.getNode1()-1;
+            int index = c.getNode1();
+            if(index != 0)
+                index = index - 1;
 
-            System.out.println("index: " + index + "K Size: " + K.size());
             K.remove(index);
             b.remove(index);
 

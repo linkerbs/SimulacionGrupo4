@@ -10,6 +10,7 @@ import static com.simu.MathTools.zeroes;
 import static com.simu.MathTools.zeroesVector;
 import static com.simu.Sel.*;
 import static com.simu.Tools.leerMallayCondiciones;
+import static com.simu.Tools.writeResults;
 //import static com.simu.Tools.writeResults;
 
 public class Main {
@@ -65,13 +66,14 @@ public class Main {
         System.out.println("******************************");
         //System.out.println(K.size() + "-" + K.get(0).size());
         //System.out.println(b.size());
-/*
+
+
         zeroesVector(T, b.size());
         calculate(K, b, T);
 
         //System.out.println("La respuesta es: ");
         //showVector(T);
 
-        writeResults(m, T, filename);*/
+        writeResults(m, T, filename);
     }
 }

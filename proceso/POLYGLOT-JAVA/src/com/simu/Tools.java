@@ -25,22 +25,14 @@ public class Tools {
 
         for (int i = 0; i < n; i++) {
             switch (mode) {
-                case "INT_FLOAT_DIRICH":
-                    String[] intFloatLineDirich = file.nextLine().split("\\s+");
-                    int e0Dirich = Integer.parseInt(intFloatLineDirich[0]);
-                    float r0Dirich = Float.parseFloat(intFloatLineDirich[1]);
-                    itemList[i].setValues(NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(),
-                            NOTHING.ordinal(), e0Dirich, NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(),
-                            NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(),
-                            NOTHING.ordinal(), NOTHING.ordinal(), r0Dirich);
                 case "INT_FLOAT":
-                        String[] intFloatLine = file.nextLine().split("\\s+");
-                        int e0 = Integer.parseInt(intFloatLine[0]);
-                        float r0 = Float.parseFloat(intFloatLine[1]);
-                        itemList[i].setValues(NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(),
-                                NOTHING.ordinal(), e0, NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(),
-                                NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(),
-                                NOTHING.ordinal(), NOTHING.ordinal(), r0);
+                    String[] intFloatLine = file.nextLine().split("\\s+");
+                    int e0 = Integer.parseInt(intFloatLine[0]);
+                    float r0 = Float.parseFloat(intFloatLine[1]);
+                    itemList[i].setValues(NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(),
+                            NOTHING.ordinal(), e0, NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(),
+                            NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(), NOTHING.ordinal(),
+                            NOTHING.ordinal(), NOTHING.ordinal(), r0);
                         /*if (type == Sizes.DIRICHLET_X.ordinal()) System.out.println("X: " + e0 + " " + r0);
                         else System.out.println("N: " + e0 + " " + r0);*/
                     break;
@@ -118,9 +110,9 @@ public class Tools {
 
         obtenerDatos(scanner, "SINGLELINE", nnodes, "INT_FLOAT_FLOAT_FLOAT", m.getNodes(), Sizes.NODES.name());
         obtenerDatos(scanner, "DOUBLELINE", neltos, "INT_10", m.getElementList(), Sizes.ELEMENTS.name());
-        obtenerDatos(scanner, "DOUBLELINE", ndirich_x, "INT_FLOAT_DIRICH", m.getDirichletList(), Types.DIRICHLET_X.name());
-        obtenerDatos(scanner, "DOUBLELINE", ndirich_y, "INT_FLOAT_DIRICH", m.getDirichletList(), Types.DIRICHLET_Y.name());
-        obtenerDatos(scanner, "DOUBLELINE", ndirich_z, "INT_FLOAT_DIRICH", m.getDirichletList(), Types.DIRICHLET_Z.name());
+        obtenerDatos(scanner, "DOUBLELINE", ndirich_x, "INT_FLOAT", m.getDirichletList(), Types.DIRICHLET_X.name());
+        obtenerDatos(scanner, "DOUBLELINE", ndirich_y, "INT_FLOAT", m.getDirichletList(), Types.DIRICHLET_Y.name());
+        obtenerDatos(scanner, "DOUBLELINE", ndirich_z, "INT_FLOAT", m.getDirichletList(), Types.DIRICHLET_Z.name());
         obtenerDatos(scanner, "DOUBLELINE", nneu, "INT_FLOAT", m.getNeumannList(), Sizes.NEUMANN.name());
 
         scanner.close();
@@ -141,7 +133,7 @@ public class Tools {
         return false;
     }
 
-    /*public static void writeResults(Mesh m, ArrayList<Float> T, String filename) {
+    public static void writeResults(Mesh m, ArrayList<Float> T, String filename) {
         int[] dirichIndices = m.getIndicesDirich();
         Condition[] dirich = m.getDirichletList();
         String outputFileName = filename + ".post.res";
@@ -173,5 +165,5 @@ public class Tools {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-    }*/
+    }
 }
