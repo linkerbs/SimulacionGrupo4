@@ -1,1 +1,9 @@
-# SimulacionGrupo4
+# Polyglot Sidequest: Alexa Shmalexa
+## Grupo : 04
+
+
+
+### Integrantes
+* ANTONIO ALEXIS PERTUZ AREVALO - 00267016
+* DOUGLAS ALFREDO LINO HENRIQUEZ - 00018318
+* ERICK RICARDO BONILLA ASCENCIO - 00002918
